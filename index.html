@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS</title>
+  <style>
+       .box {
+            width: 50px;
+            height: 50px;
+            border: 1px solid;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            font-family: monospace;
+            font-size: 15pt;
+        }
+       
+    </style>
+</head>
+<body>
+ 	<div class ="box" onClick="return setBg(this)">0</div>
+    <div class ="box" onClick="return setBg(this)">0</div>
+    <div class ="box" onClick="return setBg(this)">0</div>
+    <div class ="box" onClick="return setBg(this)">0</div>
+    <div class ="box" onClick="return setBg(this)">0</div>
+    <script>
+    	var countPress = 0;
+		var colors = new Array('blue','green','yellow');
+ 
+		function setBg(el) {
+    	el.style.backgroundColor = colors[countPress];
+    	countPress++;
+    	if (countPress == colors.length) { countPress = 0;}
+		}
+
+        let squares = document.getElementsByTagName("div");
+        for (let i = 0; i < squares.length; ++i) {
+            squares[i].addEventListener("click", handler);
+            
+        }
+        function handler(e) {
+            this.innerText = ++this.innerText;
+
+        }
+
+    </script>
+</body>
+</html>
